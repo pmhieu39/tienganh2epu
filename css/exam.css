@@ -1,0 +1,455 @@
+/* exam.css - Giao diện Tạo bài kiểm tra & Màn hình Làm bài liên tục trên 1 trang */
+.config-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 1.25rem;
+}
+.config-section {
+  margin-bottom: 1.35rem;
+}
+.config-label {
+  display: block;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 0.55rem;
+}
+.checkbox-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.chip-option {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.15s;
+}
+.chip-option:hover {
+  border-color: var(--primary-500);
+  color: var(--primary-600);
+}
+.chip-option.selected {
+  background: var(--primary-50);
+  border-color: var(--primary-500);
+  color: var(--primary-600);
+  box-shadow: 0 0 0 1px var(--primary-500);
+}
+
+/* Bộ điều khiển đồng bộ Ô nhập số & Thanh kéo (Lỗi 3) */
+.custom-control-bar {
+  margin-top: 0.7rem;
+  padding: 0.75rem 0.95rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+.custom-control-bar.is-custom-focused {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+.custom-number-input {
+  width: 96px;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  border: 1.5px solid var(--border-strong);
+  background: var(--bg-surface);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--primary-600);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.custom-number-input:focus {
+  border-color: var(--primary-500);
+  box-shadow: 0 0 0 3px var(--primary-100);
+}
+.custom-range-slider {
+  flex: 1;
+  min-width: 150px;
+  height: 6px;
+  accent-color: var(--primary-500);
+  background: var(--border-strong);
+  border-radius: 999px;
+  cursor: pointer;
+}
+
+/* Màn hình làm bài (Exam & Practice Workspace) */
+.workspace-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 310px;
+  gap: 1.25rem;
+  align-items: start;
+}
+.workspace-top-bar {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.timer-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: var(--radius-sm);
+  background: var(--primary-50);
+  color: var(--primary-600);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.timer-box.warning {
+  background: var(--danger-50);
+  color: var(--danger-600);
+  animation: pulse 1s infinite;
+}
+
+/* Phân nhóm theo Part & Đề liên tục trên một trang (Lỗi 1 & Lỗi 2) */
+.workspace-part-section {
+  margin-bottom: 2rem;
+}
+.workspace-part-banner {
+  background: var(--gradient-soft);
+  border: 1px solid var(--primary-200);
+  border-left: 5px solid var(--primary-500);
+  border-radius: var(--radius-md);
+  padding: 0.9rem 1.25rem;
+  margin-bottom: 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.workspace-test-group {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+.workspace-test-group-header {
+  padding-bottom: 0.75rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.workspace-questions-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Khung bài đọc (Passage Container) hiển thị toàn bộ liên tục, không cuộn riêng (Lỗi 2.A) */
+.passage-container {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem 1.2rem;
+  margin-bottom: 1.25rem;
+  max-height: none !important;
+  height: auto !important;
+  overflow: visible !important;
+  overflow-y: visible !important;
+  font-size: 0.96rem;
+  line-height: 1.8;
+  position: relative;
+}
+.passage-header {
+  position: static;
+  background: transparent;
+  padding: 0 0 0.65rem;
+  margin-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+.passage-header-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.passage-header-actions {
+  display: none !important;
+}
+.btn-passage-toggle {
+  display: none !important;
+}
+.passage-body {
+  color: var(--text-primary);
+  word-break: break-word;
+}
+.passage-text-content {
+  white-space: pre-line;
+}
+
+/* Ô trống Cloze Test (Part V) */
+.cloze-blank {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
+  padding: 0.08rem 0.55rem;
+  margin: 0.08rem 0.16rem;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  border: 1.5px dashed var(--primary-500);
+  background: var(--bg-surface);
+  color: var(--primary-600);
+  cursor: pointer;
+  vertical-align: baseline;
+  transition: all 0.2s ease;
+  user-select: none;
+  scroll-margin-top: calc(var(--header-height) + 28px);
+}
+.cloze-blank:hover {
+  border-style: solid;
+  background: var(--primary-50);
+  transform: translateY(-1px);
+}
+.cloze-blank.is-current {
+  background: var(--primary-500);
+  color: #ffffff;
+  border: 1.5px solid var(--primary-600);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.32);
+}
+.cloze-blank.is-answered:not(.is-current) {
+  background: var(--primary-50);
+  color: var(--primary-700);
+  border: 1.5px solid var(--primary-500);
+}
+.cloze-blank.is-correct {
+  background: var(--success-600);
+  color: #ffffff;
+  border: 1.5px solid var(--success-600);
+}
+.cloze-blank.is-wrong {
+  background: var(--danger-500);
+  color: #ffffff;
+  border: 1.5px solid var(--danger-600);
+}
+.cloze-blank-num {
+  font-weight: 800;
+}
+.cloze-blank-val {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Thẻ từng câu hỏi & hiệu ứng cuộn mượt + làm nổi bật (Lỗi 2.C) */
+.question-card-item {
+  scroll-margin-top: calc(var(--header-height) + 24px);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+.question-card-item.is-active-question {
+  border-color: var(--primary-500);
+}
+@keyframes highlightPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(79, 70, 229, 0.45);
+    border-color: var(--primary-500);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(79, 70, 229, 0.18);
+    border-color: var(--primary-600);
+  }
+  100% {
+    box-shadow: var(--shadow-sm);
+  }
+}
+.question-highlight-flash {
+  animation: highlightPulse 1.3s ease-out;
+  border-color: var(--primary-500) !important;
+}
+.cloze-context-snippet {
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--primary-500);
+  padding: 0.55rem 0.85rem;
+  border-radius: 6px;
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+}
+
+.passage-item-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.65rem;
+}
+.passage-item-card:last-child {
+  margin-bottom: 0;
+}
+.question-image-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--bg-elevated);
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  margin-bottom: 1.1rem;
+  border: 1px solid var(--border-color);
+}
+.question-image-box img {
+  max-height: 320px;
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  background: #fff;
+  padding: 0.35rem;
+}
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin: 0.85rem 0 0.5rem;
+}
+.option-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.85rem;
+  width: 100%;
+  text-align: left;
+  padding: 0.85rem 1.05rem;
+  border-radius: var(--radius-md);
+  border: 2px solid var(--border-color);
+  background: var(--bg-surface);
+  transition: all 0.16s ease;
+  font-size: 0.94rem;
+}
+.option-btn:hover:not(:disabled) {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+.option-key {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: var(--bg-elevated);
+  color: var(--text-secondary);
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--border-strong);
+}
+.option-btn.selected {
+  border-color: var(--primary-500);
+  background: var(--primary-50);
+}
+.option-btn.selected .option-key {
+  background: var(--primary-500);
+  color: #fff;
+  border-color: var(--primary-500);
+}
+.option-btn.correct {
+  border-color: var(--success-500);
+  background: var(--success-50);
+}
+.option-btn.correct .option-key {
+  background: var(--success-500);
+  color: #fff;
+  border-color: var(--success-500);
+}
+.option-btn.wrong {
+  border-color: var(--danger-500);
+  background: var(--danger-50);
+}
+.option-btn.wrong .option-key {
+  background: var(--danger-500);
+  color: #fff;
+  border-color: var(--danger-600);
+}
+
+/* Bảng điều hướng số câu cố định bên phải (Lỗi 2.B) */
+.nav-palette-card {
+  position: sticky;
+  top: calc(var(--header-height) + 1rem);
+  max-height: calc(100vh - var(--header-height) - 2rem);
+  overflow-y: auto;
+  z-index: 20;
+}
+.palette-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.45rem;
+  margin: 0.85rem 0;
+}
+.palette-cell {
+  height: 36px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  border: 1px solid var(--border-strong);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.15s;
+}
+.palette-cell:hover {
+  border-color: var(--primary-500);
+  color: var(--primary-600);
+}
+.palette-cell.current {
+  outline: 2px solid var(--primary-500);
+  outline-offset: 1px;
+  font-weight: 800;
+}
+.palette-cell.answered {
+  background: var(--primary-500);
+  color: #fff;
+  border-color: var(--primary-500);
+}
+.palette-cell.flagged::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--warning-500);
+}
+.palette-cell.correct {
+  background: var(--success-500);
+  color: #fff;
+  border-color: var(--success-500);
+}
+.palette-cell.wrong {
+  background: var(--danger-500);
+  color: #fff;
+  border-color: var(--danger-500);
+}
